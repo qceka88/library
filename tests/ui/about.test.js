@@ -1,8 +1,9 @@
-const { test, expect } = require('@playwright/test');
+const {test, expect} = require('@playwright/test');
+export const pageURL = "http://localhost:8080/"
 
-test('Check about page', async ({ page }) => {
-  await page.goto('http://localhost:8080/about');
-  const heading = await page.$('h3');
-  const text = await heading.textContent();
-  expect(text).toBe('About us');
+test('Check about page', async ({page}) => {
+    await page.goto(pageURL + 'about');
+    const heading = await page.$('h1');
+    const text = await heading.textContent();
+    expect(text).toBe('About');
 });
