@@ -1,9 +1,10 @@
-const { test, expect } = require('@playwright/test');
+const {test, expect} = require('@playwright/test');
+import {pageURL,} from './about.test.js'
 
-test('Check home page', async ({ page }) => {
-    await page.goto('http://localhost:8080/');
-    const heading = await page.$('h2');
+test('Check home page', async ({page}) => {
+    await page.goto(pageURL);
+    const heading = await page.$('h1');
     const text = await heading.textContent();
-    expect(text).toContain('Home - Library');  
-  });
+    expect(text).toContain('Books Collection');
+});
   
